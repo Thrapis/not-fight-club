@@ -1,0 +1,67 @@
+.account-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  padding-inline: 16px;
+}
+
+.account-preview {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+}
+
+.account-image {
+  height: 200px;
+  width: 160px;
+  object-fit: contain;
+}
+
+.account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.account-player-name {
+}
+
+.account-w-l-statistics {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.account-win-statistics {
+  color: green;
+}
+
+.account-lose-statistics {
+  color: red;
+}
+
+/* Image selector */
+
+.account-image-selector {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 520px;
+  height: 640px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  overflow-y: auto;
+}
+
+.account-image-selector img {
+  height: 200px;
+  width: 160px;
+  object-fit: contain;
+  background: grey;
+  border-radius: 8px;
+  padding: 16px;
+}

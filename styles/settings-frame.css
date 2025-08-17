@@ -1,0 +1,49 @@
+.settings-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+  padding-inline: 16px;
+}
+
+.setting-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.setting-header {
+  line-height: 1;
+  margin-right: 8px;
+}
+
+.settings-frame button {
+
+}
+
+/* Name setting */
+
+.name-setting-readonly-box {
+
+}
+
+.setting-box.edit-mode .name-setting-readonly-box {
+  display: none;
+}
+
+.name-setting-readonly {
+
+}
+
+.setting-box:not(.edit-mode) .name-setting-edit-box {
+  display: none;
+}
+
+.name-setting-edit-box {
+
+}
+
+.name-setting-edit {
+
+}

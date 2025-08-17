@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/base.css" />
+    <link rel="stylesheet" href="./styles/ui.css" />
+    <link rel="stylesheet" href="./styles/fight-frame.css" />
+    <link rel="stylesheet" href="./styles/account-frame.css" />
+    <link rel="stylesheet" href="./styles/settings-frame.css" />
+    <title>Not Fight Club</title>
+  </head>
+  <body>
+    <main class="main-window">
+      <nav class="top-hud">
+        <div class="top-left-hud">
+          <div class="game-state-indicator" id="game-state-indicator">Fight</div>
+        </div>
+
+        <div class="top-center-hud">
+          <div class="player-name-label" id="player-name-label"></div>
+        </div>
+
+        <div class="top-right-hud">
+          <button class="home-button"></button>
+          <button class="account-button"></button>
+          <button class="settings-button"></button>
+        </div>
+      </nav>
+
+      <div class="render">
+        <section class="fight-frame focused">
+          <div class="duel-box">
+            <aside class="duel-player-box">
+              <img
+                class="duel-player-portrait"
+                src="./assets/img/player/Amazon.gif"
+              />
+              <h3 class="duel-player-name">Rodolein</h3>
+              <span class="duel-player-health"></span>
+            </aside>
+
+            <form class="duel-action-control-box">
+              <div class="duel-action-selector">
+                <hgroup class="duel-action-attack">
+                  <h3>Attack</h3>
+                  <label>
+                    <span>Head</span>
+                    <input type="checkbox" value="head-point-attack" />
+                  </label>
+                  <label>
+                    <span>Neck</span>
+                    <input type="checkbox" value="neck-point-attack" />
+                  </label>
+                  <label>
+                    <span>Body</span>
+                    <input type="checkbox" value="body-point-attack" />
+                  </label>
+                  <label>
+                    <span>Belly</span>
+                    <input type="checkbox" value="belly-point-attack" />
+                  </label>
+                  <label>
+                    <span>Legs</span>
+                    <input type="checkbox" value="legs-point-attack" />
+                  </label>
+                </hgroup>
+                <hgroup class="duel-action-defence">
+                  <h3>Defence</h3>
+                  <label>
+                    <input type="checkbox" value="head-point-defence" />
+                    <span>Head</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" value="neck-point-defence" />
+                    <span>Neck</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" value="body-point-defence" />
+                    <span>Body</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" value="belly-point-defence" />
+                    <span>Belly</span>
+                  </label>
+                  <label>
+                    <input type="checkbox" value="legs-point-defence" />
+                    <span>Legs</span>
+                  </label>
+                </hgroup>
+              </div>
+              <button class="duel-action-submit-button">Submit action</button>
+            </form>
+
+            <aside class="duel-enemy-box">
+              <img
+                class="duel-enemy-portrait"
+                src="./assets/img/enemy/Abominable.gif"
+              />
+              <h3 class="duel-enemy-name">Abominable</h3>
+              <span class="duel-enemy-health"></span>
+            </aside>
+          </div>
+          <div class="history-log">
+            <span>
+              <b>Rodolein</b> attacked <b>Snow troll</b> to <b>Neck</b> and crit
+              <r>15 damage</r>.
+            </span>
+            <span>
+              <b>Snow troll</b> attacked <b>Rodolein</b> to <b>Neck</b> but
+              <b>Rodolein</b> was able to protect his <b>Neck</b>.
+            </span>
+          </div>
+        </section>
+
+        <section class="account-frame">
+          <aside class="account-preview">
+            <img class="account-image" src="./assets/img/player/Amazon.gif" />
+            <div class="account-info">
+              <span class="account-player-name" id="account-player-name"></span>
+              <span class="account-w-l-statistics">
+                <span class="account-win-statistics">
+                  Wins: <span id="account-win-statistics-count"></span>
+                </span>
+                <span class="account-lose-statistics">
+                  Loses: <span id="account-lose-statistics-count"></span>
+                </span>
+              </span>
+            </div>
+          </aside>
+
+          <div class="account-image-selector">
+            <img src="./assets/img/player/Amazon.gif">
+            <img src="./assets/img/player/Assassin.gif">
+            <img src="./assets/img/player/Barbarian.gif">
+            <img src="./assets/img/player/Druid.gif">
+            <img src="./assets/img/player/Necromancer.gif">
+            <img src="./assets/img/player/Paladin.gif">
+            <img src="./assets/img/player/Sorceress.gif">
+          </div>
+        </section>
+
+        <section class="settings-frame">
+          <hgroup class="setting-box">
+            <h3 class="setting-header">Palyer name:</h3>
+            <div class="name-setting-readonly-box">
+              <span
+                class="name-setting-readonly"
+                id="name-setting-readonly"
+              ></span>
+              <button>Edit</button>
+            </div>
+            <div class="name-setting-edit-box">
+              <input class="name-setting-edit" type="text" />
+              <button>Change</button>
+            </div>
+          </hgroup>
+        </section>
+      </div>
+    </main>
+
+    <div class="enter-name-window" id="enter-name-window">
+      <label for="player-name-input">Enter your nickname</label>
+      <input class="player-name-input" type="text" id="player-name-input" />
+      <button class="enter-name-submit-button" id="enter-name-submit-button">
+        Submit
+      </button>
+    </div>
+
+    <script src="./scripts/ui.js"></script>
+  </body>
+</html>

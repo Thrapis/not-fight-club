@@ -1,0 +1,138 @@
+.fight-frame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: white;
+}
+
+/* Duel Box */
+
+.duel-box {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 16px;
+}
+
+/* Fighter Box */
+
+.duel-player-box,
+.duel-enemy-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+
+  width: 200px;
+}
+
+.duel-player-portrait,
+.duel-enemy-portrait {
+  height: 160px;
+  width: 160px;
+  object-fit: contain;
+}
+
+.duel-player-name,
+.duel-enemy-name {
+}
+
+.duel-player-health,
+.duel-enemy-health {
+  position: relative;
+  --health: 100;
+  --max-health: 100;
+  display: block;
+  background-color: red;
+  width: 100%;
+  height: 24px;
+}
+
+.duel-player-health::before,
+.duel-enemy-health::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "";
+  background-color: green;
+  height: 100%;
+  width: calc(var(--health) / var(--max-health) * 100%);
+}
+
+.duel-player-health::after,
+.duel-enemy-health::after {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  counter-reset: health var(--health) max-health var(--max-health);
+  content: counter(health) " / " counter(max-health);
+}
+
+/* Attack Box */
+
+.duel-action-control-box {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.duel-action-selector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.duel-action-attack,
+.duel-action-defence {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.duel-action-attack label,
+.duel-action-defence label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.duel-action-submit-button {
+}
+
+/* History log */
+
+.history-log {
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  padding: 8px;
+
+  height: 25%;
+  border: solid 2px;
+  overflow-y: auto;
+}
+
+.history-log > span {
+  display: block;
+}
+
+.history-log b {
+  color: blue;
+  font-weight: 500;
+}
+
+.history-log r {
+  color: red;
+  font-weight: 500;
+}

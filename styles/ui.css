@@ -1,0 +1,122 @@
+.enter-name-window {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  background: white;
+  z-index: 99;
+}
+
+.enter-name-window.hidden {
+  display: none;
+}
+
+/* Main Window */
+
+.main-window {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-hud {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  padding-inline: 16px;
+}
+
+.top-hud > * {
+  height: 100%;
+}
+
+.top-left-hud {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.top-center-hud {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.top-right-hud {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Indicators */
+
+.game-state-indicator {
+  text-transform: capitalize;
+}
+
+.player-name-label {
+}
+
+.top-right-hud button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.top-right-hud button::before {
+  display: block;
+  content: "";
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.home-button::before {
+  background: url("../assets/svg/ui/home.svg");
+}
+
+.account-button::before {
+  background: url("../assets/svg/ui/user.svg");
+}
+
+.settings-button::before {
+  background: url("../assets/svg/ui/settings.svg");
+}
+
+/* Render */
+
+.render {
+  position: relative;
+  flex: 1;
+}
+
+.render section {
+  box-sizing: border-box;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+}
+
+.render section.focused {
+  z-index: 1;
+}
+
+.render section:not(.focused) {
+  display: none;
+}
