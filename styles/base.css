@@ -1,5 +1,12 @@
 :root {
-    font-family: 'Exocet';
-    font-size: 20px;
-    letter-spacing: 1px;
+  font-family: "Exocet";
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+input,
+button {
+  font-family: "Exocet";
+  font-size: 20px;
+  letter-spacing: 1px;
 }

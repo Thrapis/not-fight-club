@@ -15,7 +15,9 @@
     <main class="main-window">
       <nav class="top-hud">
         <div class="top-left-hud">
-          <div class="game-state-indicator" id="game-state-indicator">Fight</div>
+          <div class="game-state-indicator" id="game-state-indicator">
+            Fight
+          </div>
         </div>
 
         <div class="top-center-hud">
@@ -37,7 +39,7 @@
                 class="duel-player-portrait"
                 src="./assets/img/player/Amazon.gif"
               />
-              <h3 class="duel-player-name">Rodolein</h3>
+              <h3 class="duel-player-name" id="duel-player-name"></h3>
               <span class="duel-player-health"></span>
             </aside>
 
@@ -131,13 +133,13 @@
           </aside>
 
           <div class="account-image-selector">
-            <img src="./assets/img/player/Amazon.gif">
-            <img src="./assets/img/player/Assassin.gif">
-            <img src="./assets/img/player/Barbarian.gif">
-            <img src="./assets/img/player/Druid.gif">
-            <img src="./assets/img/player/Necromancer.gif">
-            <img src="./assets/img/player/Paladin.gif">
-            <img src="./assets/img/player/Sorceress.gif">
+            <img src="./assets/img/player/Amazon.gif" />
+            <img src="./assets/img/player/Assassin.gif" />
+            <img src="./assets/img/player/Barbarian.gif" />
+            <img src="./assets/img/player/Druid.gif" />
+            <img src="./assets/img/player/Necromancer.gif" />
+            <img src="./assets/img/player/Paladin.gif" />
+            <img src="./assets/img/player/Sorceress.gif" />
           </div>
         </section>
 
@@ -145,15 +147,18 @@
           <hgroup class="setting-box">
             <h3 class="setting-header">Palyer name:</h3>
             <div class="name-setting-readonly-box">
-              <span
-                class="name-setting-readonly"
-                id="name-setting-readonly"
-              ></span>
-              <button>Edit</button>
+              <span class="name-setting-readonly" id="name-setting-readonly">
+              </span>
+              <button id="name-setting-edit-button">Edit</button>
             </div>
             <div class="name-setting-edit-box">
-              <input class="name-setting-edit" type="text" />
-              <button>Change</button>
+              <input
+                class="name-setting-edit-input"
+                type="text"
+                id="name-setting-edit-input"
+              />
+              <button id="name-setting-change-button">Change</button>
+              <button id="name-setting-cancel-button">Cancel</button>
             </div>
           </hgroup>
         </section>
@@ -169,5 +174,6 @@
     </div>
 
     <script src="./scripts/ui.js"></script>
+    <script src="./scripts/settings-frame.js"></script>
   </body>
 </html>

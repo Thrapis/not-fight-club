@@ -44,24 +44,33 @@ function loadPlayerData() {
 
   if (playerName !== null) {
     const playerNameLabel = document.querySelector("#player-name-label");
+    const duelPlayerName = document.querySelector("#duel-player-name");
     const accountPlayerName = document.querySelector("#account-player-name");
     const nameSettingReadonly = document.querySelector(
       "#name-setting-readonly"
     );
+    const nameSettingEditInput = document.querySelector(
+      "#name-setting-edit-input"
+    );
     playerNameLabel.textContent = playerName;
+    duelPlayerName.textContent = playerName;
     accountPlayerName.textContent = playerName;
     nameSettingReadonly.textContent = playerName;
+    nameSettingEditInput.value = playerName;
     // Hide player name enter window
     const enterNameWindow = document.querySelector("#enter-name-window");
     enterNameWindow.classList.add("hidden");
   }
 
-  const accountWinStatisticsCount = document.querySelector("#account-win-statistics-count");
+  const accountWinStatisticsCount = document.querySelector(
+    "#account-win-statistics-count"
+  );
   accountWinStatisticsCount.textContent = winsCount !== null ? winsCount : 0;
 
-  const accountLoseStatisticsCount = document.querySelector("#account-lose-statistics-count");
+  const accountLoseStatisticsCount = document.querySelector(
+    "#account-lose-statistics-count"
+  );
   accountLoseStatisticsCount.textContent = losesCount !== null ? losesCount : 0;
-
 }
 
 function selectFrame(frameName) {
@@ -71,6 +80,6 @@ function selectFrame(frameName) {
   const frameToSelect = document.querySelector(`.${frameName}-frame`);
   frameToSelect.classList.add("focused");
 
-  const gameStateIndicator = document.querySelector('#game-state-indicator');
+  const gameStateIndicator = document.querySelector("#game-state-indicator");
   gameStateIndicator.textContent = frameName;
 }
