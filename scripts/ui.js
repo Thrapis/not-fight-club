@@ -1,4 +1,5 @@
 const PLAYER_NAME_KEY = "PLAYER_NAME";
+const PLAYER_IMG_KEY = "PLAYER_IMG";
 const WINS_COUNT_KEY = "WINS_COUNT";
 const LOSES_COUNT_KEY = "LOSES_COUNT";
 
@@ -41,7 +42,9 @@ function loadPlayerData() {
   const playerName = window.localStorage.getItem(PLAYER_NAME_KEY);
   const winsCount = window.localStorage.getItem(WINS_COUNT_KEY);
   const losesCount = window.localStorage.getItem(LOSES_COUNT_KEY);
+  let playerImage = window.localStorage.getItem(PLAYER_IMG_KEY);
 
+  // Setting player name
   if (playerName !== null) {
     const playerNameLabel = document.querySelector("#player-name-label");
     const duelPlayerName = document.querySelector("#duel-player-name");
@@ -62,15 +65,26 @@ function loadPlayerData() {
     enterNameWindow.classList.add("hidden");
   }
 
+  // Setting winds
   const accountWinStatisticsCount = document.querySelector(
     "#account-win-statistics-count"
   );
   accountWinStatisticsCount.textContent = winsCount !== null ? winsCount : 0;
 
+  // Setting loses
   const accountLoseStatisticsCount = document.querySelector(
     "#account-lose-statistics-count"
   );
   accountLoseStatisticsCount.textContent = losesCount !== null ? losesCount : 0;
+
+  // Setting player image
+  if (playerImage === null) {
+    playerImage = PLAYER_IMAGES[0];
+  }
+  const duelPlayerPortrait = document.querySelector("#duel-player-portrait");
+  const accountImage = document.querySelector("#account-image");
+  duelPlayerPortrait.src = playerImage;
+  accountImage.src = playerImage;
 }
 
 function selectFrame(frameName) {

@@ -37,6 +37,7 @@
             <aside class="duel-player-box">
               <img
                 class="duel-player-portrait"
+                id="duel-player-portrait"
                 src="./assets/img/player/Amazon.gif"
               />
               <h3 class="duel-player-name" id="duel-player-name"></h3>
@@ -118,7 +119,18 @@
 
         <section class="account-frame">
           <aside class="account-preview">
-            <img class="account-image" src="./assets/img/player/Amazon.gif" />
+            <div class="account-image-box">
+              <img
+                class="account-image"
+                src="./assets/img/player/Amazon.gif"
+                id="account-image"
+              />
+              <div class="account-image-overlay"></div>
+              <button
+                class="account-image-change-button"
+                id="account-image-change-button"
+              ></button>
+            </div>
             <div class="account-info">
               <span class="account-player-name" id="account-player-name"></span>
               <span class="account-w-l-statistics">
@@ -132,14 +144,24 @@
             </div>
           </aside>
 
-          <div class="account-image-selector">
-            <img src="./assets/img/player/Amazon.gif" />
-            <img src="./assets/img/player/Assassin.gif" />
-            <img src="./assets/img/player/Barbarian.gif" />
-            <img src="./assets/img/player/Druid.gif" />
-            <img src="./assets/img/player/Necromancer.gif" />
-            <img src="./assets/img/player/Paladin.gif" />
-            <img src="./assets/img/player/Sorceress.gif" />
+          <div
+            class="account-image-selector-modal"
+            id="account-image-selector-modal"
+          >
+            <div
+              class="account-image-selector-modal-overlay"
+              id="account-image-selector-modal-overlay"
+            ></div>
+            <div class="account-image-selector-modal-content">
+              <button
+                class="account-image-selector-modal-close-button"
+                id="account-image-selector-modal-close-button"
+              ></button>
+              <div
+                class="account-image-selector"
+                id="account-image-selector"
+              ></div>
+            </div>
           </div>
         </section>
 
@@ -173,7 +195,9 @@
       </button>
     </div>
 
+    <script src="./scripts/data.js"></script>
     <script src="./scripts/ui.js"></script>
     <script src="./scripts/settings-frame.js"></script>
+    <script src="./scripts/account-frame.js"></script>
   </body>
 </html>

@@ -1,9 +1,10 @@
 .account-frame {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: white;
-  padding-inline: 16px;
+  padding: 16px;
 }
 
 .account-preview {
@@ -12,11 +13,57 @@
   gap: 32px;
 }
 
-.account-image {
+/* Account image */
+
+.account-image-box {
+  position: relative;
   height: 200px;
   width: 160px;
+}
+
+.account-image {
+  height: 100%;
+  width: 100%;
   object-fit: contain;
 }
+
+.account-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: gray;
+  opacity: 0.5;
+}
+
+.account-image-box:not(:hover) .account-image-overlay {
+  display: none;
+}
+
+.account-image-change-button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+}
+
+.account-image-change-button::before {
+  display: block;
+  content: "";
+  background-image: url("../assets/svg/ui/image-edit.svg");
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.account-image-box:not(:hover) .account-image-change-button {
+  display: none;
+}
+
+/* Account info */
 
 .account-info {
   display: flex;
@@ -25,6 +72,7 @@
 }
 
 .account-player-name {
+  font-size: 24px;
 }
 
 .account-w-l-statistics {
@@ -43,25 +91,119 @@
 
 /* Image selector */
 
-.account-image-selector {
+.account-image-selector-modal {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 520px;
-  height: 640px;
+  inset: 0;
+}
+
+.account-image-selector-modal:not(.visible) {
+  display: none;
+}
+
+.account-image-selector-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: dimgray;
+  opacity: 0.5;
+}
+
+.account-image-selector-modal-content {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+
+  width: 80%;
+  height: 80%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.account-image-selector-modal-close-button {
+  place-self: end;
+  height: 40px;
+  width: 40px;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.account-image-selector-modal-close-button::before {
+  display: block;
+  content: "";
+  background-image: url("../assets/svg/ui/close-circle.svg");
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.account-image-selector {
+  width: 100%;
 
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 16px;
+
   overflow-y: auto;
 }
 
-.account-image-selector img {
+.select-image-box {
+  position: relative;
   height: 200px;
   width: 160px;
-  object-fit: contain;
   background: grey;
   border-radius: 8px;
   padding: 16px;
+  overflow: hidden;
+}
+
+.select-image-box img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.select-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: gray;
+  opacity: 0.5;
+}
+
+.select-image-box:not(:hover) .select-image-overlay {
+  display: none;
+}
+
+.select-image-box button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+}
+
+.select-image-box button::before {
+  display: block;
+  content: "";
+  background-image: url("../assets/svg/ui/check-circle.svg");
+  background-size: 24px 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+}
+
+.select-image-box:not(:hover) button {
+  display: none;
 }
