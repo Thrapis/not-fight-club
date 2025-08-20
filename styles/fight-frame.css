@@ -6,6 +6,45 @@
   background: white;
 }
 
+/* Fight initiation */
+
+.fight-initiation-window {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  background: white;
+
+  z-index: 99;
+}
+
+.fight-frame.fight-started .fight-initiation-window {
+  display: none;
+}
+
+.fight-initiation-message {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.fight-initiation-message.win {
+  color: green;
+}
+
+.fight-initiation-message.lose {
+  color: red;
+}
+
+.fight-initiation-button {
+  font-size: 20px;
+}
+
 /* Duel Box */
 
 .duel-box {
@@ -43,8 +82,8 @@
 .duel-player-health,
 .duel-enemy-health {
   position: relative;
-  --health: 100;
-  --max-health: 100;
+  /* --health: 100;
+  --max-health: 100; */
   display: block;
   background-color: red;
   width: 100%;
@@ -77,35 +116,40 @@
 /* Attack Box */
 
 .duel-action-control-box {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 160px;
 }
 
 .duel-action-selector {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
 }
 
 .duel-action-attack,
 .duel-action-defence {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .duel-action-attack label,
 .duel-action-defence label {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4px;
 }
 
 .duel-action-submit-button {
+}
+
+.duel-action-hint {
+  font-size: 18px;
 }
 
 /* History log */
@@ -130,10 +174,15 @@
 
 .history-log b {
   color: blue;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .history-log r {
   color: red;
-  font-weight: 500;
+  font-weight: 700;
+}
+
+.history-log d {
+  color: black;
+  font-weight: 700;
 }

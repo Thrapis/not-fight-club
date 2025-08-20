@@ -78,7 +78,7 @@
 .account-w-l-statistics {
   display: flex;
   flex-direction: row;
-  gap: 8px;
+  gap: 16px;
 }
 
 .account-win-statistics {

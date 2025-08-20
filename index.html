@@ -33,88 +33,56 @@
 
       <div class="render">
         <section class="fight-frame focused">
+          <div class="fight-initiation-window">
+            <span
+              class="fight-initiation-message"
+              id="fight-initiation-message"
+            ></span>
+            <button
+              class="fight-initiation-button"
+              id="fight-initiation-button"
+            >
+              Start fighting
+            </button>
+          </div>
+
           <div class="duel-box">
             <aside class="duel-player-box">
-              <img
-                class="duel-player-portrait"
-                id="duel-player-portrait"
-                src="./assets/img/player/Amazon.gif"
-              />
+              <img class="duel-player-portrait" id="duel-player-portrait" />
               <h3 class="duel-player-name" id="duel-player-name"></h3>
-              <span class="duel-player-health"></span>
+              <span class="duel-player-health" id="duel-player-health"></span>
             </aside>
 
-            <form class="duel-action-control-box">
+            <form class="duel-action-control-box" id="duel-action-control-box">
               <div class="duel-action-selector">
-                <hgroup class="duel-action-attack">
+                <hgroup class="duel-action-attack" id="duel-action-attack">
                   <h3>Attack</h3>
-                  <label>
-                    <span>Head</span>
-                    <input type="checkbox" value="head-point-attack" />
-                  </label>
-                  <label>
-                    <span>Neck</span>
-                    <input type="checkbox" value="neck-point-attack" />
-                  </label>
-                  <label>
-                    <span>Body</span>
-                    <input type="checkbox" value="body-point-attack" />
-                  </label>
-                  <label>
-                    <span>Belly</span>
-                    <input type="checkbox" value="belly-point-attack" />
-                  </label>
-                  <label>
-                    <span>Legs</span>
-                    <input type="checkbox" value="legs-point-attack" />
-                  </label>
                 </hgroup>
-                <hgroup class="duel-action-defence">
+                <hgroup class="duel-action-defence" id="duel-action-defence">
                   <h3>Defence</h3>
-                  <label>
-                    <input type="checkbox" value="head-point-defence" />
-                    <span>Head</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" value="neck-point-defence" />
-                    <span>Neck</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" value="body-point-defence" />
-                    <span>Body</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" value="belly-point-defence" />
-                    <span>Belly</span>
-                  </label>
-                  <label>
-                    <input type="checkbox" value="legs-point-defence" />
-                    <span>Legs</span>
-                  </label>
                 </hgroup>
               </div>
-              <button class="duel-action-submit-button">Submit action</button>
+              <button
+                class="duel-action-submit-button"
+                id="duel-action-submit-button"
+                type="button"
+              >
+                Submit action
+              </button>
+              <div class="duel-action-hint">
+                Please pick:<br />&nbsp;&nbsp;1 Attack zone<br />&nbsp;&nbsp;2
+                Defence zones
+              </div>
             </form>
 
             <aside class="duel-enemy-box">
-              <img
-                class="duel-enemy-portrait"
-                src="./assets/img/enemy/Abominable.gif"
-              />
-              <h3 class="duel-enemy-name">Abominable</h3>
-              <span class="duel-enemy-health"></span>
+              <img class="duel-enemy-portrait" id="duel-enemy-portrait" />
+              <h3 class="duel-enemy-name" id="duel-enemy-name"></h3>
+              <span class="duel-enemy-health" id="duel-enemy-health"></span>
             </aside>
           </div>
-          <div class="history-log">
-            <span>
-              <b>Rodolein</b> attacked <b>Snow troll</b> to <b>Neck</b> and crit
-              <r>15 damage</r>.
-            </span>
-            <span>
-              <b>Snow troll</b> attacked <b>Rodolein</b> to <b>Neck</b> but
-              <b>Rodolein</b> was able to protect his <b>Neck</b>.
-            </span>
-          </div>
+
+          <div class="history-log" id="history-log"></div>
         </section>
 
         <section class="account-frame">
@@ -199,5 +167,6 @@
     <script src="./scripts/ui.js"></script>
     <script src="./scripts/settings-frame.js"></script>
     <script src="./scripts/account-frame.js"></script>
+    <script src="./scripts/fight-frame.js"></script>
   </body>
 </html>
