@@ -64,12 +64,18 @@ function fightInit() {
 }
 
 function saveFightState() {
+  const actionSetForm = document.querySelector("#duel-action-control-box");
+  const actionSet = new FormData(actionSetForm);
   window.localStorage.setItem(
     FIGHT_STATE_KEY,
     JSON.stringify({
       playerHealth: PlayerHealth,
       currentEnemy: CurrentEnemy,
       enemyHealth: EnemyHealth,
+      actionSet: {
+        attack: actionSet.getAll("attack"),
+        defence: actionSet.getAll("defence"),
+      },
     })
   );
 }
@@ -81,6 +87,16 @@ function restoreFight() {
   PlayerHealth = fightState.playerHealth;
   CurrentEnemy = fightState.currentEnemy;
   EnemyHealth = fightState.enemyHealth;
+  console.log(fightState.actionSet);
+  [...fightState.actionSet.attack, ...fightState.actionSet.defence].forEach(
+    (n) => {
+      const checkbox = document.querySelector(`input[value='${n}']`);
+      checkbox.checked = true;
+    }
+  );
+
+  const actionSetForm = document.querySelector("#duel-action-control-box");
+  actionSetForm.dispatchEvent(new Event("change"));
 
   const fightFrame = document.querySelector(".fight-frame");
   fightFrame.classList.add("fight-started");

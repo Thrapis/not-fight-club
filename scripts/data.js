@@ -39,6 +39,16 @@ const ENEMY_LIST = [
     maxHealth: 80,
     damage: 5,
     criticalChance: 10,
+    weight: 24,
+  },
+  {
+    img: "./assets/img/enemy/Fetish.gif",
+    name: "Fetish",
+    attackCount: 3,
+    defenceCount: 0,
+    maxHealth: 45,
+    damage: 7,
+    criticalChance: 10,
     weight: 20,
   },
   {
