@@ -87,7 +87,6 @@ function restoreFight() {
   PlayerHealth = fightState.playerHealth;
   CurrentEnemy = fightState.currentEnemy;
   EnemyHealth = fightState.enemyHealth;
-  console.log(fightState.actionSet);
   [...fightState.actionSet.attack, ...fightState.actionSet.defence].forEach(
     (n) => {
       const checkbox = document.querySelector(`input[value='${n}']`);
@@ -97,6 +96,14 @@ function restoreFight() {
 
   const actionSetForm = document.querySelector("#duel-action-control-box");
   actionSetForm.dispatchEvent(new Event("change"));
+
+  // Load history log
+  const historyLogs = window.localStorage.getItem(HISTORY_LOG_KEY);
+  if (historyLogs !== null) {
+    const historyLogBox = document.querySelector("#history-log");
+    historyLogBox.innerHTML = historyLogs;
+    historyLogBox.scrollTop = historyLogBox.scrollHeight;
+  }
 
   const fightFrame = document.querySelector(".fight-frame");
   fightFrame.classList.add("fight-started");
@@ -159,6 +166,9 @@ function stopFight(result) {
 
   const fightFrame = document.querySelector(".fight-frame");
   fightFrame.classList.remove("fight-started");
+
+  const historyLogBox = document.querySelector("#history-log");
+  historyLogBox.innerHTML = "";
 
   loadPlayerData();
 }
@@ -314,7 +324,7 @@ function logAction(isHit, isCrit, who, toWho, part, damage) {
   const objectName = document.createElement("b");
   objectName.textContent = toWho;
 
-  const partName = document.createElement("b");
+  const partName = document.createElement("y");
   partName.textContent = part;
 
   // Filling log message

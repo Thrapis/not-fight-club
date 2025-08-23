@@ -3,8 +3,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: white;
+  background: var(--color-background-dark);
+  background-image: url("../assets/img/ui/Background_Settings.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   padding-inline: 16px;
+  padding-top: 16px;
 }
 
 .setting-box {
@@ -20,13 +25,15 @@
 }
 
 .settings-frame button {
-
 }
 
 /* Name setting */
 
 .name-setting-readonly-box {
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
 }
 
 .setting-box.edit-mode .name-setting-readonly-box {
@@ -34,7 +41,6 @@
 }
 
 .name-setting-readonly {
-
 }
 
 .setting-box:not(.edit-mode) .name-setting-edit-box {
@@ -42,9 +48,11 @@
 }
 
 .name-setting-edit-box {
-
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
 }
 
 .name-setting-edit-input {
-
 }

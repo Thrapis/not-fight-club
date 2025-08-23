@@ -3,7 +3,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: white;
+  background: var(--color-background-dark);
+  background-image: url("../assets/img/ui/Background_Fight.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding-top: 16px;
 }
 
 /* Fight initiation */
@@ -18,7 +23,11 @@
   justify-content: center;
   gap: 16px;
 
-  background: white;
+  background: var(--color-background-dark);
+  background-image: url("../assets/img/ui/Background_Pre_Fight.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
   z-index: 99;
 }
@@ -34,11 +43,11 @@
 }
 
 .fight-initiation-message.win {
-  color: green;
+  color: var(--color-game-green);
 }
 
 .fight-initiation-message.lose {
-  color: red;
+  color: var(--color-game-red);
 }
 
 .fight-initiation-button {
@@ -53,7 +62,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-inline: 16px;
 }
 
 /* Fighter Box */
@@ -62,10 +70,16 @@
 .duel-enemy-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   gap: 8px;
+}
 
-  width: 200px;
+.duel-player-box {
+  align-items: start;
+}
+
+.duel-enemy-box {
+  align-items: end;
 }
 
 .duel-player-portrait,
@@ -73,44 +87,72 @@
   height: 160px;
   width: 160px;
   object-fit: contain;
+
+  margin-inline: 10px;
+  padding: 32px 8px;
+  background-color: var(--color-socket);
+  border: solid 2px var(--color-socket-border-inner);
+  outline: solid 1px var(--color-socket-border-outer);
+  outline-offset: -1px;
+  border-radius: 1px;
 }
 
 .duel-player-name,
 .duel-enemy-name {
+  width: 100%;
+  color: var(--color-game-blue);
+  text-align: center;
 }
 
 .duel-player-health,
 .duel-enemy-health {
   position: relative;
-  /* --health: 100;
-  --max-health: 100; */
   display: block;
-  background-color: red;
-  width: 100%;
-  height: 24px;
+  background-image: url("../assets/img/ui/HP_Bar.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  height: 162px;
+  aspect-ratio: 194 / 162;
+  margin-top: 40px;
+  object-fit: contain;
+}
+
+.duel-enemy-health {
+  transform: scaleX(-1);
 }
 
 .duel-player-health::before,
 .duel-enemy-health::before {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
+  right: 0;
   display: block;
   content: "";
-  background-color: green;
-  height: 100%;
-  width: calc(var(--health) / var(--max-health) * 100%);
+  background-image: url("../assets/img/ui/HP_Guage.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;
+  width: 100%;
+  height: calc(var(--health) / var(--max-health) * (100% - 15px - 10px) + 15px);
+  z-index: -1;
 }
 
 .duel-player-health::after,
 .duel-enemy-health::after {
   position: absolute;
+  top: -24px;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   display: block;
   counter-reset: health var(--health) max-health var(--max-health);
-  content: counter(health) " / " counter(max-health);
+  content: "Life: " counter(health) " / " counter(max-health);
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.duel-enemy-health::after {
+  transform: scaleX(-1) translateX(50%);
 }
 
 /* Attack Box */
@@ -119,7 +161,7 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  width: 160px;
+  width: 200px;
 }
 
 .duel-action-selector {
@@ -137,19 +179,69 @@
   gap: 4px;
 }
 
+/* Checkboxes */
+
 .duel-action-attack label,
 .duel-action-defence label {
+  cursor: pointer;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 4px;
+  color: var(--color-game-yellow);
 }
 
+.duel-action-attack label > input[type="checkbox"],
+.duel-action-defence label > input[type="checkbox"] {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+.duel-action-attack label::after,
+.duel-action-defence label::before {
+  display: block;
+  content: "";
+  background-image: url("../assets/img/ui/Check_Box.jpg");
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 24px;
+  height: 24px;
+}
+
+.duel-action-attack label:has(input[type="checkbox"]:checked)::before,
+.duel-action-defence label:has(input[type="checkbox"]:checked):after {
+  position: absolute;
+  top: -5px;
+  display: block;
+  content: "";
+  background-image: url("../assets/img/ui/Check.png");
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 28px;
+  height: 28px;
+  z-index: 1;
+}
+
+.duel-action-attack label::before {
+  right: -4px;
+}
+
+.duel-action-defence label:after {
+  left: 0;
+}
+
+/* Submit and hint */
+
 .duel-action-submit-button {
+  width: 100%;
 }
 
 .duel-action-hint {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 /* History log */
@@ -162,9 +254,16 @@
   gap: 4px;
 
   padding: 8px;
+  /* height: 25%; */
+  flex: 1;
 
-  height: 25%;
-  border: solid 2px;
+  background-color: var(--color-game-transparent-box);
+
+  border: solid 2px var(--color-socket-border-inner);
+  outline: solid 1px var(--color-socket-border-outer);
+  outline-offset: -1px;
+  border-radius: 1px;
+
   overflow-y: auto;
 }
 
@@ -173,16 +272,21 @@
 }
 
 .history-log b {
-  color: blue;
+  color: var(--color-game-blue);
   font-weight: 700;
 }
 
 .history-log r {
-  color: red;
+  color: var(--color-game-red);
   font-weight: 700;
 }
 
 .history-log d {
-  color: black;
+  color: var(--color-game-gray);
+  font-weight: 700;
+}
+
+.history-log y {
+  color: var(--color-game-yellow);
   font-weight: 700;
 }

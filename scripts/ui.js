@@ -47,7 +47,6 @@ function loadPlayerData() {
   const winsCount = window.localStorage.getItem(WINS_COUNT_KEY);
   const losesCount = window.localStorage.getItem(LOSES_COUNT_KEY);
   let playerImage = window.localStorage.getItem(PLAYER_IMG_KEY);
-  const historyLogs = window.localStorage.getItem(HISTORY_LOG_KEY);
 
   // Setting player name
   if (playerName !== null) {
@@ -90,12 +89,6 @@ function loadPlayerData() {
   const accountImage = document.querySelector("#account-image");
   duelPlayerPortrait.src = playerImage;
   accountImage.src = playerImage;
-
-  // Load history log
-  if (historyLogs !== null) {
-    const historyLogBox = document.querySelector("#history-log");
-    historyLogBox.innerHTML = historyLogs;
-  }
 }
 
 function clearPlayerData() {

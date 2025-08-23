@@ -17,6 +17,7 @@ function accountInit() {
     selectOverlay.classList.add("select-image-overlay");
 
     const selectButton = document.createElement("button");
+    selectButton.classList.add("attention");
     selectButton.addEventListener("click", () => setPlayerImage(e));
 
     selectImageBox.appendChild(selectImage);

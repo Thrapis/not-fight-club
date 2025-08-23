@@ -1,17 +1,295 @@
 :root {
+  --color-socket-border-inner: #aa9d75;
+  --color-socket-border-outer: #6e6851;
+  --color-socket: #100000;
+
+  --color-button-socket: #0e0e0e;
+  --color-button-face: #908d8b;
+  --color-button-face-border-light: #b9b8b6;
+  --color-button-face-border: #282723;
+  --color-button-icon: #000000;
+  --color-button-icon-shadow: #fafafa;
+
+  --color-scroll-fade: #39331f;
+
+  --color-element-container-border-outer: #f3e8c4;
+  --color-element-container-border-inner: #b3a983;
+
+  --color-attention-button-socket: #12110f;
+  --color-attention-button-icon: #d4ccaf;
+  --color-attention-button-icon-shadow: #010002;
+  --filter-attention-button-icon: invert(90%) sepia(27%) saturate(158%)
+    hue-rotate(9deg) brightness(95%) contrast(97%)
+    drop-shadow(-2px 2px 2px var(--color-attention-button-icon-shadow));
+
+  --color-solid-button-socket: #12110f;
+  --color-solid-button-icon: #202018;
+  --color-solid-button-icon-shadow: #2d241e;
+  --filter-solid-button-icon: invert(9%) sepia(13%) saturate(866%)
+    hue-rotate(22deg) brightness(96%) contrast(92%)
+    drop-shadow(-2px 2px 2px var(--color-solid-button-icon-shadow));
+
+  --color-background-dark: #0e0e0e;
+
+  --color-game-red: #fe6950;
+  --color-game-blue: #7b7bfe;
+  --color-game-yellow: #dac078;
+  --color-game-green: #25fe00;
+  --color-game-gray: #7b7b7b;
+  --color-game-white: #fefefe;
+  --color-game-transparent-box: rgba(0, 0, 0, 0.5);
+
   font-family: "Exocet";
   font-size: 20px;
   letter-spacing: 1px;
+  color: var(--color-game-white);
+}
+
+body {
+  background: var(--color-background-dark);
 }
 
 input,
 button {
+  cursor: pointer;
   font-family: "Exocet";
   font-size: 20px;
   letter-spacing: 1px;
 }
 
-input[type="button"],
-button {
+input:hover,
+button:hover {
+  outline: none;
+}
+
+/* Button Stone */
+
+input[type="button"].stone,
+button.stone {
+  box-sizing: border-box;
+  position: relative;
+  padding: 6px 24px;
+
+  background: linear-gradient(
+    180deg,
+    var(--color-button-face-border),
+    var(--color-button-face-border) 8%,
+    var(--color-button-face-border-light) 10%,
+    var(--color-button-face-border-light) 18%,
+    var(--color-button-face) 25%,
+    var(--color-button-face) 90%,
+    var(--color-button-face-border)
+  );
+  border: solid 1px var(--color-socket-border-inner);
+  outline: solid 1px var(--color-socket-border-outer);
+  border-radius: 1px;
+
+  height: 38px;
+
+  font-weight: 600;
+  color: var(--color-button-icon);
+  text-shadow: 0px 0px 2px var(--color-button-icon-shadow);
+
+  overflow: hidden;
+}
+
+input[type="button"].stone::after,
+button.stone::after,
+input[type="button"].stone::before,
+button.stone::before {
+  position: absolute;
+  top: 0;
+
+  display: block;
+  content: "";
+
+  height: 100%;
+  width: 36px;
+
+  background-image: url("../assets/img/ui/Stone_Button_Gem.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+input[type="button"].stone::before,
+button.stone::before {
+  left: 0;
+}
+
+input[type="button"].stone::after,
+button.stone::after {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+input[type="button"].stone:disabled,
+button.stone:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+/* Button Stone on Hover */
+
+input[type="button"].stone:not(:disabled):active,
+button.stone:not(:disabled):active {
+  background: linear-gradient(
+    180deg,
+    var(--color-button-face-border),
+    var(--color-button-face-border) 7px,
+    var(--color-button-face-border-light) 23%,
+    var(--color-button-face-border-light) 31%,
+    var(--color-button-face) 38%,
+    var(--color-button-face)
+  );
+  padding-top: 12px;
+}
+
+input[type="button"].stone:not(:disabled):active::after,
+button.stone:not(:disabled):active::after,
+input[type="button"].stone:not(:disabled):active::before,
+button.stone:not(:disabled):active::before {
+  top: 4px;
+  height: calc(100% - 4px);
+}
+
+/* Button Attention */
+
+input[type="button"].attention,
+button.attention {
   cursor: pointer;
+
+  height: 40px;
+  width: 40px;
+
+  color: var(--color-attention-button-icon);
+  background-color: var(--color-solid-button-socket);
+  background-image: url("../assets/img/ui/Attention_Button.jpg");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: 0;
+
+  font-weight: 600;
+  text-shadow: -2px 2px 2px var(--color-attention-button-icon-shadow);
+}
+
+input[type="button"].attention:active,
+button.attention:active {
+  background-size: 38px 38px;
+  background-position: bottom left;
+}
+
+input[type="button"].attention::before,
+button.attention::before {
+  display: block;
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  height: 100%;
+  width: 100%;
+  filter: var(--filter-attention-button-icon);
+}
+
+input[type="button"].attention:active::before,
+button.attention:active::before {
+  background-size: 20px 20px;
+  transform: translate(-1px, 1px);
+}
+
+/* Button Solid */
+
+input[type="button"].solid,
+button.solid {
+  cursor: pointer;
+
+  height: 40px;
+  width: 40px;
+
+  color: var(--color-solid-button-icon);
+  background-color: var(--color-solid-button-socket);
+  background-image: url("../assets/img/ui/Solid_Button.jpg");
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  border: 0;
+
+  font-weight: 600;
+  text-shadow: -2px 2px 2px var(--color-solid-button-icon-shadow);
+}
+
+input[type="button"].solid:active,
+button.solid:active {
+  background-size: 38px 38px;
+  background-position: bottom left;
+}
+
+input[type="button"].solid::before,
+button.solid::before {
+  display: block;
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 22px 22px;
+  height: 100%;
+  width: 100%;
+  filter: var(--filter-solid-button-icon);
+}
+
+input[type="button"].solid:active::before,
+button.solid:active::before {
+  background-size: 20px 20px;
+  transform: translate(-1px, 1px);
+}
+
+/* Input text */
+
+input[type="text"] {
+  box-sizing: border-box;
+  height: 38px;
+  padding: 4px 8px;
+
+  background-color: var(--color-socket);
+  border: solid 1px var(--color-socket-border-inner);
+  outline: solid 1px var(--color-socket-border-outer);
+  border-radius: 1px;
+
+  color: var(--color-game-white);
+}
+
+/* Scroll */
+
+::-webkit-scrollbar {
+  width: 21px;
+}
+
+::-webkit-scrollbar-track {
+  background-image: url("../assets/img/ui/Scroll_Background.jpg");
+  background-size: 100%;
+  width: 21px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: url("../assets/img/ui/Srcoll_Thumb.jpg");
+  border: solid var(--color-scroll-fade);
+  border-width: 2px 1px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  background-image: url("../assets/img/ui/Srcoll_Thumb_Horizontal.jpg");
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background-image: url("../assets/img/ui/Scroll_Button_Up.jpg");
+  background-size: 100%;
+  height: 19px;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  background-image: url("../assets/img/ui/Scroll_Button_Down.jpg");
+  background-size: 100%;
+  height: 19px;
 }
