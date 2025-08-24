@@ -125,9 +125,13 @@
   align-items: center;
 
   box-sizing: border-box;
-  background: transparent;
+
+  background-color: var(--color-game-transparent-box);
+
   border: solid 64px;
+  border-color: gray;
   border-image: url("../assets/img/ui/Modal_Back.jpg") 128 / 64px round;
+
   outline: solid 1px var(--color-element-container-border-outer);
   outline-offset: -1px;
 }

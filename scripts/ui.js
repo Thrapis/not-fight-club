@@ -11,15 +11,20 @@ const FIGHT_STATE_KEY = "FIGHT_STATE";
 document.addEventListener("DOMContentLoaded", uiInit);
 
 function uiInit() {
-
   // Enter name UI
   const playerNameInput = document.querySelector("#player-name-input");
+  playerNameInput.addEventListener(
+    "input",
+    setSumbitNicknameButtonAvailiability
+  );
+
   const enterNameSubmitButton = document.querySelector(
     "#enter-name-submit-button"
   );
   enterNameSubmitButton.addEventListener("click", () =>
     submitPlayerName(playerNameInput.value)
   );
+  enterNameSubmitButton.disabled = true;
 
   const homeButton = document.querySelector(".top-right-hud .home-button");
   homeButton.addEventListener("click", () => selectFrame("fight"));
@@ -106,4 +111,18 @@ function selectFrame(frameName) {
 
   const gameStateIndicator = document.querySelector("#game-state-indicator");
   gameStateIndicator.textContent = frameName;
+}
+
+function setSumbitNicknameButtonAvailiability(e) {
+  const nameLength = e.target.value.length;
+
+  const submitNicknameButton = document.querySelector(
+    "#enter-name-submit-button"
+  );
+
+  if (nameLength > 0) {
+    submitNicknameButton.disabled = false;
+  } else {
+    submitNicknameButton.disabled = true;
+  }
 }

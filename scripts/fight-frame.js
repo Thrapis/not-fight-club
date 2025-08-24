@@ -149,7 +149,7 @@ function stopFight(result) {
     winsCount = winsCount === null ? 1 : parseInt(winsCount) + 1;
     window.localStorage.setItem(WINS_COUNT_KEY, winsCount);
 
-    fightInitiationMessage.textContent = "YOU WON!";
+    fightInitiationMessage.textContent = "YOUR ENEMY HAS BEEN DEFEATED!";
     fightInitiationMessage.classList.add("win");
   } else if (result === LOSE_RESULT) {
     // If lose
@@ -242,10 +242,6 @@ function playAction(actionSet) {
 
   for (const attackMeta of playerAttackMetaList) {
     EnemyHealth -= attackMeta.damage;
-    if (EnemyHealth <= 0) {
-      stopFight(WIN_RESULT);
-      return;
-    }
     logAction(
       attackMeta.isHit,
       attackMeta.isCrit,
@@ -258,6 +254,10 @@ function playAction(actionSet) {
       playSound(HIT_SOUND);
     } else {
       playSound(BLOCK_SOUND);
+    }
+    if (EnemyHealth <= 0) {
+      stopFight(WIN_RESULT);
+      return;
     }
   }
 
@@ -271,10 +271,6 @@ function playAction(actionSet) {
 
   for (const attackMeta of enemyAttackMetaList) {
     PlayerHealth -= attackMeta.damage;
-    if (PlayerHealth <= 0) {
-      stopFight(LOSE_RESULT);
-      return;
-    }
     logAction(
       attackMeta.isHit,
       attackMeta.isCrit,
@@ -287,6 +283,10 @@ function playAction(actionSet) {
       playSound(HIT_SOUND);
     } else {
       playSound(BLOCK_SOUND);
+    }
+    if (PlayerHealth <= 0) {
+      stopFight(LOSE_RESULT);
+      return;
     }
   }
 

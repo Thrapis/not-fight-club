@@ -24,6 +24,28 @@ function settingsInit() {
     "#name-setting-edit-input"
   );
   nameSettingEditInput.addEventListener("input", setEditButtonAvailiability);
+
+  // Delete account
+  const settingAccountDeleteButton = document.querySelector(
+    "#setting-account-delete-button"
+  );
+  settingAccountDeleteButton.addEventListener("click", () =>
+    showDeleteAccountModal()
+  );
+
+  const deleteAccountModalDeleteButton = document.querySelector(
+    "#delete-account-modal-delete-button"
+  );
+  deleteAccountModalDeleteButton.addEventListener("click", () =>
+    deleteAccountAsured()
+  );
+
+  const deleteAccountModalCancelButton = document.querySelector(
+    "#delete-account-modal-cancel-button"
+  );
+  deleteAccountModalCancelButton.addEventListener("click", () =>
+    hideDeleteAccountModal()
+  );
 }
 
 function editName() {
@@ -68,4 +90,19 @@ function setEditButtonAvailiability(e) {
   } else {
     nameSettingChangeButton.disabled = true;
   }
+}
+
+function showDeleteAccountModal() {
+  const deleteAccountModal = document.querySelector("#delete-account-modal");
+  deleteAccountModal.classList.add("show");
+}
+
+function hideDeleteAccountModal() {
+  const deleteAccountModal = document.querySelector("#delete-account-modal");
+  deleteAccountModal.classList.remove("show");
+}
+
+function deleteAccountAsured() {
+  window.localStorage.clear();
+  window.location.reload();
 }

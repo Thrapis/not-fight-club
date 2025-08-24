@@ -7,12 +7,23 @@
   justify-content: center;
   gap: 16px;
 
-  background: white;
+  background-color: gray;
+  background-image:url('../assets/img/ui/Background_Login.jpg');
   z-index: 99;
 }
 
 .enter-name-window.hidden {
   display: none;
+}
+
+.enter-top-button {
+  position: absolute;
+  top: 16px;
+}
+
+.player-name-hint {
+  font-weight: 500;
+  font-size: 28px;
 }
 
 /* Main Window */

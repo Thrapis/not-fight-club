@@ -40,6 +40,7 @@
   font-size: 20px;
   text-align: center;
   font-weight: 700;
+  user-select: none;
 }
 
 .fight-initiation-message.win {
@@ -95,6 +96,7 @@
   outline: solid 1px var(--color-socket-border-outer);
   outline-offset: -1px;
   border-radius: 1px;
+  user-select: none;
 }
 
 .duel-player-name,

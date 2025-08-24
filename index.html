@@ -159,12 +159,43 @@
               </button>
             </div>
           </hgroup>
+
+          <hgroup class="setting-box">
+            <h3 class="setting-header">Delete account:</h3>
+            <button class="stone" id="setting-account-delete-button">
+              Delete
+            </button>
+          </hgroup>
+
+          <div class="delete-account-modal" id="delete-account-modal">
+            <div class="delete-account-modal-overlay"></div>
+            <div class="delete-account-modal-content">
+              <span class="delete-account-modal-hint">
+                Are you sure you want to delete your account? This action is
+                irreversible.
+              </span>
+              <div class="delete-account-modal-control">
+                <button class="stone" id="delete-account-modal-delete-button">
+                  Delete
+                </button>
+                <button class="stone" id="delete-account-modal-cancel-button">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </main>
 
     <div class="enter-name-window" id="enter-name-window">
-      <label for="player-name-input">Enter your nickname</label>
+      <button
+        class="solid enter-top-button play-music-button"
+        id="login-toggle-music-button"
+      ></button>
+      <label class="player-name-hint" for="player-name-input"
+        >Enter your nickname</label
+      >
       <input class="player-name-input" type="text" id="player-name-input" />
       <button
         class="stone enter-name-submit-button"

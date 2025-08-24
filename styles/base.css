@@ -58,9 +58,18 @@ button {
   letter-spacing: 1px;
 }
 
+input[type="text"] {
+  cursor: auto;
+}
+
 input:hover,
 button:hover {
   outline: none;
+}
+
+input[type="button"],
+button {
+  user-select: none;
 }
 
 /* Button Stone */

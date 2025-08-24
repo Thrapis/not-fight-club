@@ -1,4 +1,5 @@
 const clickAudio = new Audio("../assets/sound/button.wav");
+const ambientAudio = new Audio("../assets/sound/01 - Wilderness.mp3");
 
 document.addEventListener("DOMContentLoaded", soundsInit);
 
@@ -15,41 +16,63 @@ function soundsInit() {
   );
 
   // Ambient
-  const ambientAudio = new Audio("../assets/sound/01 - Wilderness.mp3");
-  ambientAudio.volume = 0.1;
+  ambientAudio.volume = 0.2;
 
   isPlaying = !(window.localStorage.getItem(IS_MUSIC_PLAYING_KEY) === "false");
 
+  const loginToggleMusicButton = document.querySelector(
+    "#login-toggle-music-button"
+  );
   const toggleMusicButton = document.querySelector("#toggle-music-button");
-  toggleMusicButton.addEventListener("click", () => {
-    if (isPlaying) {
-      ambientAudio.pause();
-      window.localStorage.setItem(IS_MUSIC_PLAYING_KEY, false);
-      toggleMusicButton.classList.remove("stop-music-button");
-      toggleMusicButton.classList.add("play-music-button");
-    } else {
-      ambientAudio.play();
-      window.localStorage.setItem(IS_MUSIC_PLAYING_KEY, true);
-      toggleMusicButton.classList.remove("play-music-button");
-      toggleMusicButton.classList.add("stop-music-button");
-    }
-    isPlaying = !isPlaying;
-  });
+  loginToggleMusicButton.addEventListener("click", () => toggleAmbient());
+  toggleMusicButton.addEventListener("click", () => toggleAmbient());
 
-  ambientAudio.addEventListener("canplaythrough", () => {
-    ambientAudio.play().catch((e) => {
-      window.addEventListener(
-        "click",
-        () => {
-          if (isPlaying) {
-            ambientAudio.play();
-            toggleMusicButton.classList.remove("play-music-button");
-            toggleMusicButton.classList.add("stop-music-button");
-          }
-        },
-        { once: true }
-      );
-    });
+  ambientAudio.addEventListener("canplaythrough", () => autoPlayAmbient());
+}
+
+function toggleAmbient(e) {
+  console.log(e);
+  const loginToggleMusicButton = document.querySelector(
+    "#login-toggle-music-button"
+  );
+  const toggleMusicButton = document.querySelector("#toggle-music-button");
+  if (isPlaying) {
+    ambientAudio.pause();
+    window.localStorage.setItem(IS_MUSIC_PLAYING_KEY, false);
+    loginToggleMusicButton.classList.remove("stop-music-button");
+    toggleMusicButton.classList.remove("stop-music-button");
+    loginToggleMusicButton.classList.add("play-music-button");
+    toggleMusicButton.classList.add("play-music-button");
+  } else {
+    ambientAudio.play();
+    window.localStorage.setItem(IS_MUSIC_PLAYING_KEY, true);
+    loginToggleMusicButton.classList.remove("play-music-button");
+    toggleMusicButton.classList.remove("play-music-button");
+    loginToggleMusicButton.classList.add("stop-music-button");
+    toggleMusicButton.classList.add("stop-music-button");
+  }
+  isPlaying = !isPlaying;
+}
+
+function autoPlayAmbient() {
+  const loginToggleMusicButton = document.querySelector(
+    "#login-toggle-music-button"
+  );
+  const toggleMusicButton = document.querySelector("#toggle-music-button");
+  ambientAudio.play().catch((e) => {
+    window.addEventListener(
+      "click",
+      () => {
+        if (isPlaying) {
+          ambientAudio.play();
+          loginToggleMusicButton.classList.remove("play-music-button");
+          toggleMusicButton.classList.remove("play-music-button");
+          loginToggleMusicButton.classList.add("stop-music-button");
+          toggleMusicButton.classList.add("stop-music-button");
+        }
+      },
+      { once: true }
+    );
   });
 }
 
@@ -68,7 +91,7 @@ function playSound(type) {
   } else return;
 
   const audio = new Audio(srcToPlay);
-  audio.volume = 0.2;
+  audio.volume = 0.4;
   audio.addEventListener("ended", () => {
     audio.remove();
   });
