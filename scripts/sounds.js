@@ -1,5 +1,5 @@
-const clickAudio = new Audio("../assets/sound/button.wav");
-const ambientAudio = new Audio("../assets/sound/01 - Wilderness.mp3");
+const clickAudio = new Audio("./assets/sound/button.wav");
+const ambientAudio = new Audio("./assets/sound/01 - Wilderness.mp3");
 
 document.addEventListener("DOMContentLoaded", soundsInit);
 
