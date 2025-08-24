@@ -112,3 +112,31 @@ const ENEMY_LIST = [
     weight: 1,
   },
 ];
+
+const HIT_SOUNDS = [
+  "../assets/sound/hit/blade1.wav",
+  "../assets/sound/hit/blade2.wav",
+  "../assets/sound/hit/blade3.wav",
+  "../assets/sound/hit/blade4.wav",
+  "../assets/sound/hit/blade5.wav",
+  "../assets/sound/hit/blade6.wav",
+  "../assets/sound/hit/sword1.wav",
+  "../assets/sound/hit/sword2.wav",
+  "../assets/sound/hit/sword3.wav",
+  "../assets/sound/hit/sword4.wav",
+  "../assets/sound/hit/sword5.wav",
+  "../assets/sound/hit/sword6.wav",
+];
+
+
+const BLOCK_SOUNDS = [
+  "../assets/sound/block/block-arrow1.wav",
+  "../assets/sound/block/block-arrow2.wav",
+  "../assets/sound/block/block-arrow3.wav",
+  "../assets/sound/block/block-blade1.wav",
+  "../assets/sound/block/block-blade4.wav",
+  "../assets/sound/block/block-blade5.wav",
+  "../assets/sound/block/block-blunt1.wav",
+  "../assets/sound/block/block-blunt2.wav",
+  "../assets/sound/block/block-blunt4.wav",
+];

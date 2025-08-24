@@ -9,12 +9,16 @@
     <link rel="stylesheet" href="./styles/fight-frame.css" />
     <link rel="stylesheet" href="./styles/account-frame.css" />
     <link rel="stylesheet" href="./styles/settings-frame.css" />
-    <title>Not Fight Club</title>
+    <title>Demon Fight Club</title>
   </head>
   <body>
     <main class="main-window">
       <nav class="top-hud">
         <div class="top-left-hud">
+          <button
+            class="solid play-music-button"
+            id="toggle-music-button"
+          ></button>
           <div class="game-state-indicator" id="game-state-indicator">
             Fight
           </div>
@@ -147,8 +151,12 @@
                 type="text"
                 id="name-setting-edit-input"
               />
-              <button class="stone" id="name-setting-change-button">Change</button>
-              <button class="stone" id="name-setting-cancel-button">Cancel</button>
+              <button class="stone" id="name-setting-change-button">
+                Change
+              </button>
+              <button class="stone" id="name-setting-cancel-button">
+                Cancel
+              </button>
             </div>
           </hgroup>
         </section>
@@ -158,7 +166,10 @@
     <div class="enter-name-window" id="enter-name-window">
       <label for="player-name-input">Enter your nickname</label>
       <input class="player-name-input" type="text" id="player-name-input" />
-      <button class="stone enter-name-submit-button" id="enter-name-submit-button">
+      <button
+        class="stone enter-name-submit-button"
+        id="enter-name-submit-button"
+      >
         Submit
       </button>
     </div>
@@ -168,5 +179,6 @@
     <script src="./scripts/settings-frame.js"></script>
     <script src="./scripts/account-frame.js"></script>
     <script src="./scripts/fight-frame.js"></script>
+    <script src="./scripts/sounds.js"></script>
   </body>
 </html>

@@ -37,6 +37,7 @@
   --color-game-green: #25fe00;
   --color-game-gray: #7b7b7b;
   --color-game-white: #fefefe;
+  --color-game-gold: #dfb679;
   --color-game-transparent-box: rgba(0, 0, 0, 0.5);
 
   font-family: "Exocet";
@@ -264,6 +265,7 @@ input[type="text"] {
 
 ::-webkit-scrollbar {
   width: 21px;
+  outline: solid 1px var(--color-element-container-border-inner);
 }
 
 ::-webkit-scrollbar-track {

@@ -58,7 +58,6 @@ function cancelEditName() {
 
 function setEditButtonAvailiability(e) {
   const newNameLength = e.target.value.length;
-  console.log(newNameLength);
 
   const nameSettingChangeButton = document.querySelector(
     "#name-setting-change-button"

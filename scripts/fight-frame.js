@@ -254,6 +254,11 @@ function playAction(actionSet) {
       attackMeta.part,
       attackMeta.damage
     );
+    if (attackMeta.damage > 0) {
+      playSound(HIT_SOUND);
+    } else {
+      playSound(BLOCK_SOUND);
+    }
   }
 
   // Enemy is attacking
@@ -278,6 +283,11 @@ function playAction(actionSet) {
       attackMeta.part,
       attackMeta.damage
     );
+    if (attackMeta.damage > 0) {
+      playSound(HIT_SOUND);
+    } else {
+      playSound(BLOCK_SOUND);
+    }
   }
 
   saveFightState();

@@ -3,6 +3,7 @@ const PLAYER_IMG_KEY = "PLAYER_IMG";
 const WINS_COUNT_KEY = "WINS_COUNT";
 const LOSES_COUNT_KEY = "LOSES_COUNT";
 const HISTORY_LOG_KEY = "HISTORY_LOG";
+const IS_MUSIC_PLAYING_KEY = "IS_MUSIC_PLAYING";
 
 const IS_FIGHTING_KEY = "IS_FIGHTING";
 const FIGHT_STATE_KEY = "FIGHT_STATE";
@@ -10,6 +11,7 @@ const FIGHT_STATE_KEY = "FIGHT_STATE";
 document.addEventListener("DOMContentLoaded", uiInit);
 
 function uiInit() {
+
   // Enter name UI
   const playerNameInput = document.querySelector("#player-name-input");
   const enterNameSubmitButton = document.querySelector(
